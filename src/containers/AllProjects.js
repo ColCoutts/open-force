@@ -7,6 +7,7 @@ import {
   getProjectsLoading
 } from '../selectors/projectSelectors';
 import Projects from '../components/projects/Projects';
+import { AllProjectsContainer } from './styled-containers/StyledContainers';
 //import fetchProjects once have service
 
 class AllProjects extends PureComponent {
@@ -18,10 +19,38 @@ class AllProjects extends PureComponent {
   }
 
   render() {
-    const { projects, loading } = this.props;
+    const { loading } = this.props;
     if(loading) return <h1>Loading</h1>;
 
     const projectData = [
+      {
+        title: 'Test',
+        url: './fakepath',
+        imgUrl: 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        id: 'blah'
+      },
+      {
+        title: 'Test',
+        url: './fakepath',
+        imgUrl: 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+        summary: 'test summ',
+        id: 'blah'
+      },
+      {
+        title: 'Test',
+        url: './fakepath',
+        imgUrl: 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+        summary: 'test summ',
+        id: 'blah'
+      },
+      {
+        title: 'Test',
+        url: './fakepath',
+        imgUrl: 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+        summary: 'test summ',
+        id: 'blah'
+      },
       {
         title: 'Test',
         url: './fakepath',
@@ -32,9 +61,9 @@ class AllProjects extends PureComponent {
     ];
 
     return (
-      <>
-      <Projects projects={projectData} />
-      </>
+      <AllProjectsContainer>
+        <Projects projects={projectData} />
+      </AllProjectsContainer>
     );
   }
 }

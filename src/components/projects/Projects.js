@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Project from './Project';
+import { StyledProjects } from './styled-components/StyledProjects';
 
 function Projects({ projects }) {
   const projectList = projects.map(project => (
-    <li key={project.id}>
+    <StyledProjects key={project.id}>
       <Project project={project} />
-    </li>
+    </StyledProjects>
   ));
 
   return (
