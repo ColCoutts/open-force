@@ -19,5 +19,7 @@ Project.propTypes = {
     imgUrl: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
-  })
+  }).isRequired
 };
+
+export default Project;

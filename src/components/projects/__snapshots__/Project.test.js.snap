@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`project component renders a snapshot for project 1`] = `
+<section>
+  <h1>
+    Project
+  </h1>
+  <a
+    href="./url"
+  >
+    ./url
+  </a>
+  <p>
+    text
+  </p>
+</section>
+`;
