@@ -18,12 +18,22 @@ class AllProjects extends PureComponent {
   }
 
   render() {
-    const { projects, loading, error } = this.props;
+    const { projects, loading } = this.props;
     if(loading) return <h1>Loading</h1>;
+
+    const projectData = [
+      {
+        title: 'Test',
+        url: './fakepath',
+        imgUrl: 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+        summary: 'test summ',
+        id: 'blah'
+      }
+    ];
 
     return (
       <>
-      <Projects />
+      <Projects projects={projectData} />
       </>
     );
   }

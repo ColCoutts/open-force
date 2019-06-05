@@ -6,6 +6,7 @@ function Project({ project }) {
   return (
     <section>
       <h1>{project.title}</h1>
+      <img src={project.imgUrl}/>
       <a href={project.url}>{project.url}</a>
       <p>{project.summary}</p>
     </section>
