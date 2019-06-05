@@ -7,6 +7,7 @@ import {
   getProjectsLoading
 } from '../selectors/projectSelectors';
 import Projects from '../components/projects/Projects';
+import Buttons from '../components/buttons/Buttons';
 import { AllProjectsContainer } from './styled-containers/StyledContainers';
 //import fetchProjects once have service
 
@@ -61,9 +62,12 @@ class AllProjects extends PureComponent {
     ];
 
     return (
+      <>
+      <Buttons />
       <AllProjectsContainer>
         <Projects projects={projectData} />
       </AllProjectsContainer>
+      </>
     );
   }
 }
