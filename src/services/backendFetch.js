@@ -16,7 +16,8 @@ export const getProjects = () => {
 
 export const createUser = json => {
   return fetch('https://openforce.herokuapp.com/auth/signup', {
-    method: 'post',
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify(json)
   })
     .then(res => res.json());
