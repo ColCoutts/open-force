@@ -13,3 +13,13 @@ export const getProjects = () => {
       id: projects._id
     })));
 };
+
+export const createUser = json => {
+  return fetch('https://openforce.herokuapp.com/auth/signup', {
+    method: 'post',
+    body: JSON.stringify(json)
+  })
+    .then(res => res.json());
+};
+
+createUser({ username: 'testuser', password: 'password', email: 'lies@lies' });
