@@ -1,9 +1,17 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { postUser } from '../../actions/signUpActions';
+import { connect } from 'react-redux';
+import { getUserLoading, getUserError } from '../../selectors/userSelectors';
 
-export default class SignUpForm extends PureComponent {
+
+export class SignUpForm extends PureComponent {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object,
+    history: PropTypes.object
   };
 
   state = {
@@ -12,11 +20,19 @@ export default class SignUpForm extends PureComponent {
     email: ''
   }
 
+  postUser = () => {
+    this.props.fetch({ username: this.state.username, email: this.state.email, password: this.state.password });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
-
     const { username, password, email } = this.state;
     this.props.onSubmit(username, password, email);
+
+    this.postUser()
+      .then(() => {
+        return this.props.history.push('/');
+      });
     this.setState({ username: '', password: '', email: '' });
   }
 
@@ -38,3 +54,22 @@ export default class SignUpForm extends PureComponent {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loading: getUserLoading(state),
+  error: getUserError(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetch(json) {
+    dispatch(postUser(json));
+  },
+  onSubmit(username, password, email) {
+    dispatch(postUser(username, password, email));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUpForm);
