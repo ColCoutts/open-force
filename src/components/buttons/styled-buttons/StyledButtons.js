@@ -21,12 +21,6 @@ const StyledButton = styled.button `
       color: #D5E3EA;
       
     }
-    
-    // :hover:after {
-    //   transform: translateY(-5rem);
-    //   transition: .5s;
-    //   opacity: 0;
-    // }
 
     :active {
       transform: translateY(-1px);
