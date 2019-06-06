@@ -20,7 +20,12 @@ export const createUser = json => {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(json)
   })
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(res => ({
+      token: res.token,
+      id: res.user._id,
+      username: res.user.username
+    }));
 };
 
 createUser({ username: 'testuser', password: 'password', email: 'lies@lies' });
