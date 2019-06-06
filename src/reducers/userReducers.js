@@ -4,7 +4,7 @@ const initialState = {
   loading: false,
   error: null,
   token: '',
-  id: '',
+  _id: '',
   username: ''
 };
 
@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
     case POST_USER_LOADING:
       return { ...state, loading: true };
     case POST_USER:
-      return { ...state, loading: false, username: action.payload.username, token: action.payload.token, id: action.payload.id };
+      return { ...state, loading: false, username: action.payload.username, token: action.payload.token, _id: action.payload._id };
     case POST_USER_ERROR:
       return { ...state, loading: false, error: action.payload };
     default:

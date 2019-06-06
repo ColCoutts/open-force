@@ -8,7 +8,6 @@ import { getUserLoading, getUserError } from '../../selectors/userSelectors';
 export class SignUpForm extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    fetch: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.object,
     history: PropTypes.object
@@ -21,13 +20,11 @@ export class SignUpForm extends PureComponent {
   }
 
   postUser = () => {
-    this.props.fetch({ username: this.state.username, email: this.state.email, password: this.state.password });
+    return this.props.onSubmit({ username: this.state.username, email: this.state.email, password: this.state.password });
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, password, email } = this.state;
-    this.props.onSubmit(username, password, email);
 
     this.postUser()
       .then(() => {
@@ -49,6 +46,7 @@ export class SignUpForm extends PureComponent {
           <input placeholder="username" name="username" type="text" value={username} onChange={this.handleChange}></input>
           <input placeholder="email" name="email" type="text" value={email} onChange={this.handleChange}></input>
           <input placeholder="password" name="password" type="text" value={password} onChange={this.handleChange}></input>
+          <button>JOIN</button>
         </form>
       </section>
     );
@@ -61,11 +59,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch(json) {
-    dispatch(postUser(json));
-  },
   onSubmit(username, password, email) {
-    dispatch(postUser(username, password, email));
+    const action = postUser(username, password, email);
+    dispatch(action);
+    return action.payload;
   }
 });
 
