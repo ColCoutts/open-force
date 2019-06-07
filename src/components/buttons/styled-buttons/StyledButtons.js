@@ -19,11 +19,12 @@ const StyledButton = styled.button `
       transform: translateY(-.2rem);
       transition: .5s;
       color: #D5E3EA;
-      box-shadow: 0 .5em 0 #0F3A4E;
+      box-shadow: 0 .29em 0 #0F3A4E;
     }
 
     :active {
       transform: translateY(-1px);
+      box-shadow: 0 .2em 0 #0F3A4E;
     }
 
     :focus {
