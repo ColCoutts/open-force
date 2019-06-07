@@ -11,13 +11,15 @@ const StyledButton = styled.button `
   border: none;
   background-color: #D5E3EA;
   color: #0F3A4E;
-  transition: .2s; 
+  transition: .3s; 
+  box-shadow: 0 .2em 0;
   
     :hover {
       background-color: #82ADC1;
       transform: translateY(-.2rem);
-      transition: .25s;
+      transition: .5s;
       color: #D5E3EA;
+      box-shadow: 0 .5em 0 #0F3A4E;
     }
 
     :active {
