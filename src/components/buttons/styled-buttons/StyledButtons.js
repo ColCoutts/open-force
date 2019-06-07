@@ -35,8 +35,8 @@ const StyledButton = styled.button `
 
 const StyledButtonSU = styled(StyledButton) `
     background-color: #F8B2A5;
-    color: #432520
-
+    color: #432520;
+    
     :hover {
       background-color: #F48673;
       color: #FBD3CC;

@@ -44,7 +44,7 @@ const StyledSignUpForm = styled.form `
     justify-content: center;
     height: 3rem;
     margin-top: .5rem;
-    background-color: #82ADC1
+    background-color: #82ADC1;
     font-size: 1em;
   }
 `;
