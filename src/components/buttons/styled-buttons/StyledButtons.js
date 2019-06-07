@@ -17,7 +17,7 @@ const StyledButton = styled.button `
     :hover {
       background-color: #82ADC1;
       transform: translateY(-.2rem);
-      transition: .5s;
+      transition: .4s;
       color: #D5E3EA;
       box-shadow: 0 .29em 0 #0F3A4E;
     }
